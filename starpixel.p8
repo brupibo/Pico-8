@@ -149,9 +149,9 @@ end
 
 function collision(bullet, enemy)
 	local i = 0
-	if bullet.x > enemy.x and bullet.x < enemy.x + enemy.width then
+	if bullet.x >= enemy.x and bullet.x <= enemy.x + enemy.width then
 		while (i <= bullet.h) do
-			if bullet.y+i < enemy.y+enemy.height and bullet.y+i > enemy.y then
+			if bullet.y+i <= enemy.y+enemy.height and bullet.y+i >= enemy.y then
 				i = bullet.h+1
 				expl_spawn(enemy.x+flr(enemy.width/2), enemy.y + flr(enemy.height/2))
 				del(bullets, bullet)
